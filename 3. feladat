@@ -1,0 +1,13 @@
+Projektmenedzsment eszköz, futtatókörnyezet
+A mai projektóra során az alábbi két feladatot kell teljesítenetek.
+
+1.   Válasszatok online projektmenedzsment eszközt, amely segíti a csapat munkáját a szoftverfejlesztés során.
+     Minimum elvárás: legalább egy GitHub account létrehozása, amelyben elkészítetek egy repository-t az általatok 
+     fejlesztett szoftver részére. A GitHub repository-t kössétek össze az általatok használt IDE-val.
+
+2.   Hozzatok létre egy virtuális számítógépet valamely csapattag számítógépén.  A virtuális számítógépen alakítsátok 
+     ki a teszt-futtatókörnyezetet. A virtuális gépen Linux operációsrendszernek kell futnia, mivel a megrendelő szervere 
+     is ezt az operációsrendszert futtatja. Telepítsétek továbbá az adatbázis-kezelő rendszert, illetve az általatok fejlesztett 
+     szoftver futtatásához szükséges egyéb csomagokat.
+
+Az elvégzett feladatokat képernyőképek segítségével dokumentáljátok egy PPT-ben, amelyet később töltsetek fel a Moodle-rendszerbe! 
