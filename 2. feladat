@@ -1,0 +1,21 @@
+Villamos energia monitoring rendszer kialakítása Adatbázis modell készítés
+
+A megrendelő egyre türelmetlenebb, már nagyon várja, hogy bemutatásra kerüljön az által megrendelt energia monitoring 
+megoldás szoftver-rendszer koncepciója.
+A projektmenedzser annak érdekében, hogy megnyugtassa a megrendelőt, azt az ajánlatot tette számára, 
+hogy a koncepció bemutatásának részét fogja képezni az adatbáziskoncepció bemutatása is.  
+
+A projektcsapat az alábbi kiegészítő feladatot kapja a projektmenedzsertől:
+  -Készítsétek el a szoftver-rendszer koncepcióban kitalált szoftver működéséhez szükséges adatbázis modellt!
+  -Az adatbázis tervezés során relációs adatbázis modellt kell alkalmaznotok. 
+  -Az adatbázis megvalósításához olyan adatbázis-kezelő rendszert kell választanotok, amely támogatja a relációs adatmodelleket.  
+  -Az adatbázis tervet úgy készítsétek el, hogy annak relációi megfeleljenek (legalább) az első normál forma követelményeinek.  
+  -Az adatbázis legyen alkalmas az alábbi adatok tárolására:
+      -a mérőeszköz gyártója, típusa, egyedi azonosítója, helye,
+      -a mért mennyiségek pillanatnyi értéke,
+      -a mért mennyiségek hisztorikus értéke,  
+      -az adott mennyiségekhez tartozó mértékegységeket. 
+  -Készítsétek el az adatbázis modell EER diagramját! 
+
+Az elkészült adatbázis modellt az EER diagram segítségével mutassátok be a szoftverrendszer koncepciót bemutató prezentáció keretében!
+Az elkészült adatbázis modell EER diagramját PDF formátumban külön is töltsétek fel a Moodle rendszerbe!  
