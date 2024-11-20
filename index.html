@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mérési Adatok</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+      <h1>Mérési Adatok</h1>
+      <h2>METSEPM5340</h2>
+      <p id="currentTime"></p>
+        <script src="script.js"></script>
+   </header>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Timestamp</th>
+                <th>Current A</th>
+                <th>Voltage AB</th>
+                <th>Frequency</th>
+                <th>Active Power Total</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        // Adatok lekérése a /data végpontról
+        fetch('/data')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('data-table').getElementsByTagName('tbody')[0];
+                data.forEach(row => {
+                    const newRow = tableBody.insertRow();
+                    newRow.insertCell().textContent = row.id;
+                    newRow.insertCell().textContent = row.timestamp;
+                    newRow.insertCell().textContent = row.current_a;
+                    newRow.insertCell().textContent = row.voltage_ab;
+                    newRow.insertCell().textContent = row.frequency;
+                    newRow.insertCell().textContent = row.active_power_total;
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+
+    <footer> 
+        Készítette: Pásztor Dániel, Gyürky Tamás, Nagy Ákos, Dobó István |
+        <a href="https://github.com/br6cgs/Iot-szoftverintegr-tor-projekt/pull/2">
+            GitHub Repository
+          </a>
+    </footer>
+</body>
+</html>

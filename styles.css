@@ -1,0 +1,64 @@
+/* Alapvető beállítások */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #324262;
+    color: #333;
+}
+
+/* Fejléc stílusa */
+header {
+    background-color: #001833;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+/* Lábjegyzet (footer) stílusa */
+footer {
+    background-color: #001833;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Linkek stílusa */
+a {
+    color: #006ee6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Táblázat középre helyezése */
+table {
+    color: white;
+    margin: 0 auto; /* Középre helyezi a táblázatot vízszintesen */
+    border-collapse: collapse; /* Az elválasztó vonalak egy vonallá olvadnak */
+    width: 100%; /* Opcionális: a táblázat szélessége */
+}
+
+/* Táblázat cellák stílusa */
+table th, table td {
+    border: 1px solid black; /* Cellák körüli vonal */
+    padding: 10px; /* Cellák belső margója */
+    text-align: center; /* Szöveg középre igazítása */
+}
+
+/* Fejléc stílusa */
+table th {
+    background-color: #324262; /* Fejléc háttérszíne */
+    font-weight: bold; /* Félkövér szöveg */
+}
+
+/* Oszlopok közötti elválasztó vonal */
+table td + td {
+    border-left: 2px solid gray; /* Oszlopokat elválasztó vonal */
+}
