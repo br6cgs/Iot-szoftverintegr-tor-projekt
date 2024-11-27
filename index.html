@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mérési Adatok</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -28,23 +29,60 @@
         </tbody>
     </table>
 
+    <!-- Gomb és grafikon helye -->
+    <button id="toggleChart">Grafikon megjelenítése</button>
+    <div id="chartContainer" style="display: none;">
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+
     <script>
-        // Adatok lekérése a /data végpontról
-        fetch('/data')
-            .then(response => response.json())
-            .then(data => {
-                const tableBody = document.getElementById('data-table').getElementsByTagName('tbody')[0];
-                data.forEach(row => {
-                    const newRow = tableBody.insertRow();
-                    newRow.insertCell().textContent = row.id;
-                    newRow.insertCell().textContent = row.timestamp;
-                    newRow.insertCell().textContent = row.current_a;
-                    newRow.insertCell().textContent = row.voltage_ab;
-                    newRow.insertCell().textContent = row.frequency;
-                    newRow.insertCell().textContent = row.active_power_total;
-                });
-            })
-            .catch(error => console.error('Error:', error));
+        let chartInitialized = false;
+
+        document.getElementById('toggleChart').addEventListener('click', function () {
+            const chartContainer = document.getElementById('chartContainer');
+
+            if (chartContainer.style.display === 'none') {
+                chartContainer.style.display = 'block';
+                this.textContent = 'Grafikon elrejtése';
+
+                if (!chartInitialized) {
+                    fetch('/data')
+                        .then(response => response.json())
+                        .then(data => {
+                            const labels = data.map(row => row.timestamp);
+                            const currentAData = data.map(row => row.current_a);
+                            const voltageABData = data.map(row => row.voltage_ab);
+                            const activePowerData = data.map(row => row.active_power_total);
+
+                            const ctx = document.getElementById('myChart').getContext('2d');
+                            new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: labels,
+                                    datasets: [
+                                        { label: 'Current A', data: currentAData, borderColor: 'rgba(255, 99, 132, 1)', borderWidth: 2, fill: false },
+                                        { label: 'Voltage AB', data: voltageABData, borderColor: 'rgba(54, 162, 235, 1)', borderWidth: 2, fill: false },
+                                        { label: 'Active Power Total', data: activePowerData, borderColor: 'rgba(75, 192, 192, 1)', borderWidth: 2, fill: false }
+                                    ]
+                                },
+                                options: {
+                                    responsive: true,
+                                    scales: {
+                                        x: { title: { display: true, text: 'Timestamp' } },
+                                        y: { title: { display: true, text: 'Values' } }
+                                    }
+                                }
+                            });
+
+                            chartInitialized = true;
+                        })
+                        .catch(error => console.error('Error:', error));
+                }
+            } else {
+                chartContainer.style.display = 'none';
+                this.textContent = 'Grafikon megjelenítése';
+            }
+        });
     </script>
 
     <footer> 
